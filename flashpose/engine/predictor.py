@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional
 
 import cv2
 import numpy as np
@@ -176,7 +176,6 @@ class Predictor:
             keypoints = kps[0, :, :2].cpu().numpy()
             scores = kps[0, :, 2].cpu().numpy()
         elif "simcc_x" in output:
-            from flashpose.models.architectures.simcc import SimCCHead
             head = self.model.head
             kps = head.decode(output["simcc_x"], output["simcc_y"], (input_h, input_w))
             keypoints = kps[0].cpu().numpy()

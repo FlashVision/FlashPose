@@ -1,6 +1,5 @@
 """Tests for FlashPose models and architectures."""
 
-import pytest
 import torch
 
 from flashpose.cfg import get_config
@@ -87,7 +86,7 @@ class TestLoRA:
         model.eval()
         x = torch.randn(1, 3, 256, 192)
         with torch.no_grad():
-            out_before = model(x)
+            _out_before = model(x)
 
         model = merge_lora_weights(model)
 

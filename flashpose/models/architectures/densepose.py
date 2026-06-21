@@ -9,7 +9,7 @@ Reference: "DensePose: Dense Human Pose Estimation In The Wild"
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Optional
 
 import torch
 import torch.nn as nn

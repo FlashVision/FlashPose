@@ -9,14 +9,13 @@ Reference: "AP-10K: A Benchmark for Animal Pose Estimation in the Wild"
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Optional
 
 import numpy as np
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
-from flashpose.cfg.config import PoseConfig, get_config
+from flashpose.cfg.config import PoseConfig
 from flashpose.registry import TASKS
 
 

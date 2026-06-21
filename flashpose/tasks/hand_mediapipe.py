@@ -12,7 +12,7 @@ Reference: "MediaPipe Hands: On-device Real-time Hand Tracking"
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict
 
 import numpy as np
 import torch

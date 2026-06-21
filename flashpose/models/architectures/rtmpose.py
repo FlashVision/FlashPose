@@ -13,7 +13,6 @@ from typing import List
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 from flashpose.cfg.config import PoseConfig
 from flashpose.registry import MODELS

@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 from tqdm import tqdm
 
-from flashpose.cfg.config import PoseConfig, load_yaml_config
+from flashpose.cfg.config import PoseConfig
 from flashpose.models.flashpose_model import FlashPose
 from flashpose.analytics.metrics import compute_pck, compute_ap, compute_mpjpe
 
@@ -62,7 +62,6 @@ class Validator:
 
         all_preds = []
         all_gts = []
-        all_bboxes = []
 
         if dataloader is None:
             for _ in range(10):
@@ -105,7 +104,7 @@ class Validator:
             mpjpe = compute_mpjpe(all_preds_arr, all_gts_arr)
             metrics["MPJPE"] = mpjpe
 
-        print(f"\n  Results:")
+        print("\n  Results:")
         for k, v in metrics.items():
             print(f"    {k}: {v:.4f}")
 

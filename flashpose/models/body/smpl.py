@@ -3,4 +3,3 @@
 Re-exports from the body package for convenience.
 """
 
-from flashpose.models.body import SMPLLayer, SMPLRegressor, SMPLMeshRecovery

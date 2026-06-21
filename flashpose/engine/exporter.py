@@ -103,9 +103,9 @@ class Exporter:
                 model_simplified, check = onnx_simplify(model_onnx)
                 if check:
                     onnx.save(model_simplified, str(output_path))
-                    print(f"  ONNX simplified successfully")
+                    print("  ONNX simplified successfully")
                 else:
-                    print(f"  ONNX simplification check failed, keeping original")
+                    print("  ONNX simplification check failed, keeping original")
             except ImportError:
                 print("  onnxsim not installed, skipping simplification")
 

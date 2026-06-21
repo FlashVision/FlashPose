@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-import os
-from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional
 
 import cv2
 import numpy as np

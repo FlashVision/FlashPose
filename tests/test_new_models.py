@@ -1,6 +1,5 @@
 """Tests for new FlashPose architectures and tasks."""
 
-import pytest
 import numpy as np
 import torch
 
@@ -156,12 +155,10 @@ class TestHandMediaPipe:
 class TestRegistration:
     def test_models_registered(self):
         from flashpose.registry import MODELS
-        from flashpose.models.architectures import DWPose, DensePose
         assert "DWPose" in MODELS
         assert "DensePose" in MODELS
 
     def test_tasks_registered(self):
         from flashpose.registry import TASKS
-        from flashpose.tasks import AnimalPoseTask, HandMediaPipeTask
         assert "animal_pose" in TASKS
         assert "hand_mediapipe" in TASKS

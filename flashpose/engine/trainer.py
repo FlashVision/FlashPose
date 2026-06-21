@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import time
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -123,7 +122,7 @@ class Trainer:
             Dictionary with final training metrics.
         """
         print(f"\n{'='*60}")
-        print(f"  FlashPose Training")
+        print("  FlashPose Training")
         print(f"  Model: {self.config.model_name} | Task: {self.config.task}")
         print(f"  Head: {self.config.head} | Keypoints: {self.config.num_keypoints}")
         print(f"  Device: {self.device} | AMP: {self.config.amp}")
@@ -224,7 +223,7 @@ class Trainer:
         with torch.no_grad():
             for batch in dataloader:
                 images = batch["image"].to(self.device)
-                output = self.model(images)
+                self.model(images)
                 total_metric += 1.0
                 num_batches += 1
 

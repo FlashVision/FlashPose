@@ -207,7 +207,7 @@ def draw_pose_3d(
         import matplotlib
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
-        from mpl_toolkits.mplot3d import Axes3D
+        from mpl_toolkits.mplot3d import Axes3D  # noqa: F401  # noqa: F401
     except ImportError:
         img = np.zeros((400, 400, 3), dtype=np.uint8)
         cv2.putText(img, "matplotlib required for 3D viz", (20, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255))

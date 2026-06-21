@@ -10,7 +10,7 @@ Reference: "SMPL: A Skinned Multi-Person Linear Model" (Loper et al., SIGGRAPH A
 
 from __future__ import annotations
 
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional
 
 import torch
 import torch.nn as nn

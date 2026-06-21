@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional
 
 import numpy as np
-import torch
 
 from flashpose.cfg.config import PoseConfig, get_config
 from flashpose.data.keypoint_utils import COCO_KEYPOINTS, COCO_SKELETON, COCO_FLIP_PAIRS

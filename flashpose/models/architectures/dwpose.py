@@ -14,7 +14,7 @@ Distillation" (Yang et al., ICCV 2023 Workshop)
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 import torch
 import torch.nn as nn

@@ -1,7 +1,6 @@
 """Tests for FlashPose tasks."""
 
 import numpy as np
-import pytest
 
 from flashpose.tasks.body_2d import Body2DTask
 from flashpose.tasks.body_3d import Body3DTask
