@@ -1,0 +1,51 @@
+# FlashPose — Whole-Body Pose (133 keypoints: body + hands + face)
+# Model: ViTPose-Large with Heatmap Head
+# Dataset: COCO WholeBody
+
+model_name: ViTPose
+backbone: vit_large
+head: heatmap
+task: wholebody
+
+# Input
+input_size: [384, 288]
+heatmap_size: [96, 72]
+num_keypoints: 133
+
+# Training
+epochs: 210
+batch_size: 32
+lr: 5.0e-4
+weight_decay: 1.0e-4
+warmup_epochs: 5
+optimizer: AdamW
+scheduler: cosine
+amp: true
+
+# LoRA
+lora: false
+lora_rank: 16
+lora_alpha: 32.0
+lora_dropout: 0.05
+
+# Data
+dataset: coco
+train_ann: data/coco/annotations/coco_wholebody_train_v1.0.json
+val_ann: data/coco/annotations/coco_wholebody_val_v1.0.json
+img_dir: data/coco/images
+workers: 4
+flip_test: true
+half_body_prob: 0.0
+
+# Augmentation
+scale_factor: 0.25
+rotation_factor: 30
+color_jitter: 0.2
+
+# Output
+save_dir: workspace/wholebody
+log_interval: 50
+save_interval: 10
+
+# Device
+device: cuda

@@ -1,0 +1,53 @@
+# FlashPose — 3D Body Pose (17 joints, lifting from 2D)
+# Model: HRNet-W32 + MLP Lifter
+# Dataset: Human3.6M
+
+model_name: HRNet
+backbone: hrnet_w32
+head: heatmap
+task: body_3d
+
+# Input
+input_size: [256, 256]
+heatmap_size: [64, 64]
+num_keypoints: 17
+
+# 3D Specific
+lift_from_2d: true
+num_joints_3d: 17
+depth_range: [0.0, 10.0]
+
+# Training
+epochs: 140
+batch_size: 128
+lr: 1.0e-3
+weight_decay: 1.0e-5
+warmup_epochs: 3
+optimizer: Adam
+scheduler: step
+amp: true
+
+# LoRA
+lora: false
+
+# Data
+dataset: h36m
+train_ann: data/h36m/train.json
+val_ann: data/h36m/val.json
+img_dir: data/h36m/images
+workers: 4
+flip_test: true
+half_body_prob: 0.0
+
+# Augmentation
+scale_factor: 0.25
+rotation_factor: 0
+color_jitter: 0.0
+
+# Output
+save_dir: workspace/pose_3d
+log_interval: 100
+save_interval: 10
+
+# Device
+device: cuda

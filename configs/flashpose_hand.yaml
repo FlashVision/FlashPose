@@ -1,0 +1,51 @@
+# FlashPose — Hand Pose (21 keypoints)
+# Model: RTMPose-S with SimCC Head
+# Dataset: COCO WholeBody (hand subset) or custom hand dataset
+
+model_name: RTMPose
+backbone: rtmpose_s
+head: simcc
+task: hand
+
+# Input
+input_size: [256, 256]
+heatmap_size: [64, 64]
+num_keypoints: 21
+
+# Training
+epochs: 300
+batch_size: 128
+lr: 4.0e-4
+weight_decay: 5.0e-5
+warmup_epochs: 10
+optimizer: AdamW
+scheduler: cosine
+amp: true
+
+# LoRA
+lora: false
+lora_rank: 4
+lora_alpha: 8.0
+lora_dropout: 0.0
+
+# Data
+dataset: coco
+train_ann: data/hand/train.json
+val_ann: data/hand/val.json
+img_dir: data/hand/images
+workers: 4
+flip_test: false
+half_body_prob: 0.0
+
+# Augmentation
+scale_factor: 0.25
+rotation_factor: 90
+color_jitter: 0.4
+
+# Output
+save_dir: workspace/hand
+log_interval: 50
+save_interval: 20
+
+# Device
+device: cuda

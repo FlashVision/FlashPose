@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=70.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flashpose"
+version = "1.0.0"
+description = "FlashPose: Production-grade 2D/3D human pose estimation, hand/face keypoints, action & gesture recognition"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "FlashVision"},
+]
+keywords = ["pose-estimation", "human-pose", "keypoints", "action-recognition", "gesture-recognition", "pytorch", "vitpose", "hrnet", "rtmpose", "computer-vision"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "numpy>=1.24.0",
+    "opencv-python>=4.8.0",
+    "Pillow>=9.0.0",
+    "PyYAML>=6.0",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+export = ["onnx>=1.14.0", "onnxruntime>=1.15.0", "onnxsim>=0.4.0"]
+analytics = ["matplotlib>=3.7.0", "pandas>=2.0.0"]
+3d = ["scipy>=1.10.0"]
+all = ["onnx>=1.14.0", "onnxruntime>=1.15.0", "onnxsim>=0.4.0", "scipy>=1.10.0", "matplotlib>=3.7.0", "pandas>=2.0.0"]
+dev = ["pytest", "ruff", "pre-commit"]
+
+[project.urls]
+Homepage = "https://github.com/FlashVision/FlashPose"
+Repository = "https://github.com/FlashVision/FlashPose"
+Issues = "https://github.com/FlashVision/FlashPose/issues"
+
+[project.scripts]
+flashpose = "flashpose.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["flashpose*"]
+
+[tool.ruff]
+line-length = 120

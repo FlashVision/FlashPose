@@ -1,0 +1,51 @@
+# FlashPose — 2D Body Pose (COCO 17 keypoints)
+# Model: ViTPose-Base with Heatmap Head
+# Dataset: COCO Keypoints 2017
+
+model_name: ViTPose
+backbone: vit_base
+head: heatmap
+task: body_2d
+
+# Input
+input_size: [256, 192]
+heatmap_size: [64, 48]
+num_keypoints: 17
+
+# Training
+epochs: 210
+batch_size: 64
+lr: 5.0e-4
+weight_decay: 1.0e-4
+warmup_epochs: 5
+optimizer: AdamW
+scheduler: cosine
+amp: true
+
+# LoRA (set lora: true to enable)
+lora: false
+lora_rank: 8
+lora_alpha: 16.0
+lora_dropout: 0.05
+
+# Data
+dataset: coco
+train_ann: data/coco/annotations/person_keypoints_train2017.json
+val_ann: data/coco/annotations/person_keypoints_val2017.json
+img_dir: data/coco/images
+workers: 4
+flip_test: true
+half_body_prob: 0.3
+
+# Augmentation
+scale_factor: 0.35
+rotation_factor: 40
+color_jitter: 0.3
+
+# Output
+save_dir: workspace/body_17
+log_interval: 50
+save_interval: 10
+
+# Device
+device: cuda

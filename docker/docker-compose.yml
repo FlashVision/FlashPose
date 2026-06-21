@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  flashpose:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: flashpose:latest
+    container_name: flashpose
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ../data:/app/data
+      - ../workspace:/app/workspace
+      - ../configs:/app/configs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  flashpose-train:
+    extends:
+      service: flashpose
+    container_name: flashpose-train
+    command: train --config configs/flashpose_body_17.yaml
+    volumes:
+      - ../data:/app/data
+      - ../workspace:/app/workspace
+
+  flashpose-predict:
+    extends:
+      service: flashpose
+    container_name: flashpose-predict
+    command: predict --model workspace/pose/best.pth --source data/test --output workspace/predictions
+    volumes:
+      - ../data:/app/data
+      - ../workspace:/app/workspace
