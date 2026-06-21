@@ -6,5 +6,10 @@ from flashpose.tasks.hand import HandTask
 from flashpose.tasks.face import FaceTask
 from flashpose.tasks.wholebody import WholeBodyTask
 from flashpose.tasks.action import ActionTask
+from flashpose.tasks.animal_pose import AnimalPoseTask
+from flashpose.tasks.hand_mediapipe import HandMediaPipeTask
 
-__all__ = ["Body2DTask", "Body3DTask", "HandTask", "FaceTask", "WholeBodyTask", "ActionTask"]
+__all__ = [
+    "Body2DTask", "Body3DTask", "HandTask", "FaceTask",
+    "WholeBodyTask", "ActionTask", "AnimalPoseTask", "HandMediaPipeTask",
+]
